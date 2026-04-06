@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5247",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+          "DB_HOST": "db",
+          "DB_PORT": "5432",
+          "DB_NAME": "calendarium",
+          "DB_USER": "postgres",
+          "DB_PASSWORD": "Escalibur35$"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7092;http://localhost:5247",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+GET http://localhost:5247/users
+###
+GET http://localhost:5247/users/3
+###
+POST http://localhost:5247/users
+Content-Type: application/json
+
+{
+    "name": "Chris redfield",
+    "email": "chris.redfield@example.com",
+    "password_hash": "hashed_password",
+    "role": "admin"
+}
+
+###
+
+PUT http://localhost:5247/users/4
+Content-Type: application/json
+
+{
+    "name": "Bob Johnson",
+    "email": "ben.johnson@example.com",
+    "password_hash": " hashed_password",
+    "role": "Provider",
+    "active": false
+}
+###
+PUT http://localhost:5247/users/deactivate/4
+###
+PUT http://localhost:5247/users/restore/

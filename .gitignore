@@ -1,0 +1,36 @@
+## [ Secretos y Configuración Local ]
+.env
+*.user
+*.userosscache
+*.sln.doccache
+
+## [ Carpetas de Compilación .NET ]
+bin/
+obj/
+publish/
+/TestResults/
+
+## [ Datos de Docker y Base de Datos ]
+# Importante: No subir los datos reales de la DB que se guardan en tu PC
+postgres_data/
+mysql_data/
+docker_volumes/
+
+## [ Herramientas de Desarrollo (IDE) ]
+.visualstudio/
+.vs/
+.vscode/
+*.suo
+*.user
+*.sln.ids
+*.dbmdl
+*.jsproj.user
+
+## [ Entity Framework ]
+# Solo ignoramos los archivos de log o temporales, 
+# ¡NO ignores la carpeta Migrations/! Esa sí debe subirse.
+*.log
+
+## [ Sistema Operativo ]
+.DS_Store
+Thumbs.db

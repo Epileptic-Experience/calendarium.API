@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: calendarium-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+  api:
+    build: .
+    container_name: calendarium-api
+    ports:
+      - "5247:8080" # Mapea el puerto 5247 de tu PC al 8080 del contenedor
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=${DB_NAME};Username=${DB_USER};Password=${DB_PASSWORD}
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

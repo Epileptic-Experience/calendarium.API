@@ -1,0 +1,39 @@
+GET http://localhost:5247/appointments
+###
+GET http://localhost:5247/debug-a-db
+###
+GET http://localhost:5247/raw-test
+
+###
+GET http://localhost:5247/appointments/3
+###
+POST http://localhost:5247/appointments
+Content-Type: application/json
+
+{
+      "client_id": 1,
+      "provider_id": 1,
+      "location_id": 1,
+      //YYYY-MM-DD, HH:MM:SS
+      "date": "2023-12-31",
+      "time": "10:00:00"
+
+}
+
+###
+
+PUT http://localhost:5247/appointments/3
+Content-Type: application/json
+
+{
+        "client_id": 1,
+        "provider_id": 1,
+        "location_id": 1,
+        //YYYY-MM-DD, HH:MM:SS
+        "date": "2023-12-31",
+        "time": "23:59:59"
+}
+###
+PUT http://localhost:5247/appointments/deactivate/3
+###
+PUT http://localhost:5247/appointments/restore/3

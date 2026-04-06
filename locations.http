@@ -1,0 +1,23 @@
+GET http://localhost:5247/locations
+###
+GET http://localhost:5247/locations/3
+###
+POST http://localhost:5247/locations
+Content-Type: application/json
+
+{
+    "address": "123 fake street springfield, USA"
+}
+
+###
+
+PUT http://localhost:5247/locations/3
+Content-Type: application/json
+
+{
+    "address": "456 Oak blvd Springfield, USA"
+}
+###
+PUT http://localhost:5247/locations/deactivate/3
+###
+PUT http://localhost:5247/locations/restore/3
