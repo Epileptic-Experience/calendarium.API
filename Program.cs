@@ -10,15 +10,7 @@ var db = Environment.GetEnvironmentVariable("DB_NAME");
 var user = Environment.GetEnvironmentVariable("DB_USER");
 var password = Environment.GetEnvironmentVariable("DB_PASSWORD");
 
-// Intentamos obtener la conexión
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-if (string.IsNullOrEmpty(connectionString))
-{
-    // Esto nos dirá si la variable existe en el sistema pero con otro nombre
-    var envVar = Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
-}
-// --- FIN BLOQUE DE DEBUG ---
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));

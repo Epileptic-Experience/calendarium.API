@@ -9,6 +9,11 @@ services:
       POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432"
+    healthcheck: # <--- ESTO ES NECESARIO PARA QUE 'service_healthy' FUNCIONE
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     volumes:
       - postgres_data:/var/lib/postgresql
 
@@ -21,7 +26,8 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=${DB_NAME};Username=${DB_USER};Password=${DB_PASSWORD}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
 volumes:
   postgres_data:
