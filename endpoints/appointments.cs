@@ -24,7 +24,11 @@ public static class appointmentsEndpoints
                 DataSource = conn.DataSource
             });
         });
-
+          app.MapGet("/", (AppDbContext db) =>
+        {
+            
+            return Results.Ok("Api corriendo exisotasamente");
+        });
 
         // GET /appointments
         app.MapGet("/appointments", (AppDbContext db) =>
